@@ -8182,6 +8182,7 @@ navigator.mediaDevices.getUserMedia({video:true, audio:true})
           stream: stream , trickle: false
     })
     Peer.on('stream', function(stream){
+        // call createVideo
         createVideo(stream)
     })
     Peer.on('close', function(){
@@ -8190,6 +8191,7 @@ navigator.mediaDevices.getUserMedia({video:true, audio:true})
     })
     return Peer
     }
+    // get peer of type init
     function makePeer(){
         client.gotAnswer = false
         let Peer = initPeer('init')
@@ -8200,6 +8202,8 @@ navigator.mediaDevices.getUserMedia({video:true, audio:true})
         })
         client.Peer = Peer;
     }
+
+    // get peer of type not init
     function frontAnswer(){
         let Peer = initPeer('notinit')
         Peer.on('signal', (data)=>{
@@ -8213,19 +8217,19 @@ navigator.mediaDevices.getUserMedia({video:true, audio:true})
         Peer.signal(answer);
     }
     function createVideo(stream){
-        let video = document.createElement('video')
-        video.id = 'peervideo'
-        video.class= 'embed-responsive-item'
+        let video = document.createElement('video');
+        video.id = 'peerDiv';
+        video.class= 'embed-responsive-item';
         video.srcObject = stream;
-        document.querySelector('#peerDiv').appendChild(video)
+        document.querySelector('#peerDiv').appendChild(video);
     }
     function sessionActive(){
         document.write('Session is Active')
     }
     socket.on('BackOffer', frontAnswer);
-    socket.on('BackAnswer',signalAnswer);
-    socket.on('SessionActive',sessionActive);
-    socket.on('createPeer',makePeer);
+    socket.on('BackAnswer', signalAnswer);
+    socket.on('SessionActive', sessionActive);
+    socket.on('createPeer', makePeer);
 })
 .catch(err => document.write(err));
 
