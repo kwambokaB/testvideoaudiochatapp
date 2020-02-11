@@ -1,10 +1,10 @@
     {
-        "root": true,
-    "extends": "airbnb-base",
-    "env": {
+     "root": true,
+     "extends": "airbnb-base",
+     "env": {
         "node": true,
         "es6": true
-    },
+     },
     "rules": {
         "one-var": 0,
         "one-var-declaration-per-line": 0,

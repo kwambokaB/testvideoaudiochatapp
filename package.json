@@ -17,5 +17,9 @@
   },
   "devDependencies": {
     "watchify": "^3.11.1"
+  },
+  
+  "engines":{
+    "node":"12.x"
   }
 }
