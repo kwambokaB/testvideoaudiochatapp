@@ -5,21 +5,21 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"npx watchify ./public/main.js -o ./public/bundle.js",
-    "start":"nodemon server.js"
+    "watch": "npx watchify ./public/main.js -o ./public/bundle.js",
+    "start": "nodemon server.js"
   },
   "author": "kwamboakB",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "nodemon": "^2.0.2",
     "simple-peer": "^9.6.2",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "watchify": "^3.11.1"
   },
-  
-  "engines":{
-    "node":"12.x"
+  "engines": {
+    "node": "12.x"
   }
 }
